@@ -7,22 +7,22 @@ struct Student {
 
 impl Student {
     fn new() -> Self {
-	Self {
-	    roll_no: String::new(),
-	    name: String::new(),
-	}
+        Self {
+            roll_no: String::new(),
+            name: String::new(),
+        }
     }
     fn get_roll_no(&self) -> &str {
-	self.roll_no.as_str()
+        self.roll_no.as_str()
     }
     fn set_roll_no(&mut self, roll_no: &str) {
-	self.roll_no = roll_no.into();
+        self.roll_no = roll_no.into();
     }
     fn get_name(&self) -> &str {
-	self.name.as_str()
+        self.name.as_str()
     }
     fn set_name(&mut self, name: &str) {
-	self.name = name.into();
+        self.name = name.into();
     }
 }
 
@@ -30,9 +30,9 @@ impl Student {
 struct StudentView;
 impl StudentView {
     fn print_student_details(&self, name: &str, roll_no: &str) {
-	println!("Student:");
-	println!("Name: {}", name);
-	println!("Roll no.: {}", roll_no);
+        println!("Student:");
+        println!("Name: {}", name);
+        println!("Roll no.: {}", roll_no);
     }
 }
 
@@ -44,25 +44,23 @@ struct StudentController {
 
 impl StudentController {
     fn new(model: Student, view: StudentView) -> Self {
-	Self {
-	    model,
-	    view,
-	}
+        Self { model, view }
     }
     fn set_student_name(&mut self, name: &str) {
-	self.model.set_name(name);
+        self.model.set_name(name);
     }
     fn get_student_name(&self) -> &str {
-	self.model.get_name()
+        self.model.get_name()
     }
     fn set_student_roll_no(&mut self, roll_no: &str) {
-	self.model.set_roll_no(roll_no);
+        self.model.set_roll_no(roll_no);
     }
     fn get_student_roll_no(&self) -> &str {
-	self.model.get_roll_no()
+        self.model.get_roll_no()
     }
     fn update_view(&self) {
-	self.view.print_student_details(self.get_student_name(), self.get_student_roll_no());
+        self.view
+            .print_student_details(self.get_student_name(), self.get_student_roll_no());
     }
 }
 
